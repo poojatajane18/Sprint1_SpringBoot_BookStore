@@ -1,11 +1,9 @@
-package com.book.controller;
+package com.book;
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.book.modal.Book;
-import com.book.service.BookService;
 
 @RestController
 public class BookController {
@@ -42,4 +40,6 @@ public class BookController {
 	public String deleteBook(@PathVariable long bookId) throws IllegalAccessException {
 		return bookService.deleteBook(bookId);
 	}
+
+	 
 }

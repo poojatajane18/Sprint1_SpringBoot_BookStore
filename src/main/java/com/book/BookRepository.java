@@ -1,7 +1,6 @@
-package com.book.repository;
+package com.book;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.book.modal.Book;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
 

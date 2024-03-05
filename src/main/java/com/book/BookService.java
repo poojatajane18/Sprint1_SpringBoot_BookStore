@@ -1,11 +1,10 @@
-package com.book.service;
+package com.book;
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.book.modal.Book;
-import com.book.repository.BookRepository;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 
@@ -43,4 +42,14 @@ public class BookService {
 		bookRepo.deleteById(bookId);
 		return "Book with Id = " + bookId + " is successfully deleted";
 	}
+	public Book updateBook(Book book) {
+	    // Check if the book with the given ID exists in the database
+	    Long id = book.getId();
+	    if (!bookRepo.existsById(id)) {
+	        throw new IllegalArgumentException("Book with ID " + id + " not found");
+	    }
+	    return bookRepo.save(book);
+	  }
+	
+
 }
